@@ -7,8 +7,11 @@ COPY ./requirments.txt /code/requirments.txt
 #RUN /bin/sh -c pip install --no-cache-dir --upgrade -r requirments.txt
 RUN pip install --no-cache-dir --upgrade -r requirments.txt  
 
+COPY ./app/initapp.py /code/app/initapp.py
+WORKDIR /code/app
+RUN python ./initapp.py
+
 COPY ./app /code/app
-#RUN pip install fonetika
 WORKDIR /code/app
 
 EXPOSE $APP_PORT
