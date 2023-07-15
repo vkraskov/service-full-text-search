@@ -7,7 +7,7 @@ import nltk
 import uvicorn
 from fastapi import FastAPI, HTTPException, status
 # import re
-from fonetika.soundex import RussianSoundex
+#from fonetika.soundex import RussianSoundex
 from nltk import word_tokenize
 from nltk.corpus import stopwords
 from pydantic import BaseModel
@@ -17,7 +17,7 @@ from pymongo import errors
 
 from MongoAPI import MongoAPI
 
-soundex = RussianSoundex(delete_first_letter=True, code_vowels=True)
+#soundex = RussianSoundex(delete_first_letter=True, code_vowels=True)
 
 data = {
     "database": os.environ['DB_DATABASE'],
@@ -131,8 +131,8 @@ def fuzzy_text(text):
     f = ""
     for word in text:
         ss = fuzzy.nysiis(word)
-        if ss == '':
-            ss = soundex.transform(word)
+        #if ss == '':
+        #    ss = soundex.transform(word)
         if ss != '':
             f = f + " " + ss
     return f

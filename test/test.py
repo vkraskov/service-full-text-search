@@ -3,7 +3,7 @@ import requests as r
 import json
 import os
 
-url="http://localhost:8082/api/doc"
+url="http://localhost:5001/api/doc"
 def Create(file):
     response = r.post(url=url+"/create",json=file)
     print("Create :\t",url+"/create",response.status_code)
